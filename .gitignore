@@ -1,5 +1,13 @@
 *.class
 
+#maven target dir
+target
+
+#eclipse files
+.classpath
+.project
+.settings
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
