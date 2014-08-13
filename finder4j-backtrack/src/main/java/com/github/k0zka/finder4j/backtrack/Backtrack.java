@@ -1,5 +1,6 @@
 package com.github.k0zka.finder4j.backtrack;
 
+import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -46,7 +47,7 @@ public class Backtrack {
 
 		logger.debug("Starting backtrack");
 
-		final LinkedList<BackTrackState<X, S>> stack = new LinkedList<BackTrackState<X, S>>();
+		final Deque<BackTrackState<X, S>> stack = new LinkedList<BackTrackState<X, S>>();
 		X head = state;
 		// initial state
 		BackTrackState<X, S> btState = new BackTrackState<X, S>(state, factory
