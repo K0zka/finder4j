@@ -1,5 +1,6 @@
 package com.github.k0zka.finder4j.backtrack;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 import org.junit.Test;
@@ -15,6 +16,9 @@ public class BacktrackTest {
 	State state;
 
 	@Mock
+	State completeState;
+
+	@Mock
 	StepFactory<Step<State>, State> stepFactory;
 
 	@Mock
@@ -23,6 +27,9 @@ public class BacktrackTest {
 	@Mock
 	SolutionListener<State, Step<State>> listener;
 
+	@Mock
+	Step<State> step;
+	
 	@Test
 	public void backtrackNosolutionShort() {
 		Mockito.when(terminationStrategy.stop(Matchers.any(State.class)))
@@ -30,5 +37,19 @@ public class BacktrackTest {
 		Mockito.when(stepFactory.produce(Matchers.any(State.class)))
 				.thenReturn(Collections.<Step<State>> emptyList());
 		Backtrack.backtrack(state, stepFactory, terminationStrategy, listener);
+		Mockito.verify(listener, Mockito.never()).onSolution(Mockito.any(State.class));;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	public void backtrackSingleStepToComplete() {
+		Mockito.when(terminationStrategy.stop(Mockito.eq(state))).thenReturn(false);
+		Mockito.when(terminationStrategy.stop(Mockito.eq(completeState))).thenReturn(true);
+		Mockito.when(completeState.isComplete()).thenReturn(true);
+		Mockito.when(stepFactory.produce(Mockito.eq(state))).thenReturn(Arrays.asList(step));
+		Mockito.when(step.take(Mockito.eq(state))).thenReturn(completeState);
+		Backtrack.backtrack(state, stepFactory, terminationStrategy, listener);
+		Mockito.verify(listener, Mockito.never()).onSolution(state);
+		Mockito.verify(listener).onSolution(completeState);
 	}
 }
