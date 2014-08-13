@@ -16,6 +16,9 @@ public class BacktrackTest {
 	State state;
 
 	@Mock
+	State endState;
+
+	@Mock
 	State completeState;
 
 	@Mock
@@ -52,4 +55,16 @@ public class BacktrackTest {
 		Mockito.verify(listener, Mockito.never()).onSolution(state);
 		Mockito.verify(listener).onSolution(completeState);
 	}
+
+	@SuppressWarnings("unchecked")
+	@Test
+	public void backtrackSingleStepDeadEnd() {
+		Mockito.when(terminationStrategy.stop(Mockito.any(State.class))).thenReturn(false);
+		Mockito.when(stepFactory.produce(Mockito.eq(state))).thenReturn(Arrays.asList(step));
+		Mockito.when(step.take(Mockito.eq(state))).thenReturn(endState);
+		Backtrack.backtrack(state, stepFactory, terminationStrategy, listener);
+		Mockito.verify(step).take(state);
+		Mockito.verify(listener, Mockito.never()).onSolution(Mockito.any(State.class));
+	}
+
 }
