@@ -13,8 +13,7 @@ public class LoggerSolutionListener<X extends State, S extends Step<X>> implemen
 	
 	private int cntr = 0;
 	
-	public void onSolution(X state) {
-		System.out.println(state);
+	public void onSolution(final X state) {
 		logger.info("Solution {} : {}", cntr ++, state);
 	}
 
