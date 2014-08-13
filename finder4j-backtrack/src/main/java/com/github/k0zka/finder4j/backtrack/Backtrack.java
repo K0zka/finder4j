@@ -9,18 +9,16 @@ import org.slf4j.LoggerFactory;
 
 public class Backtrack {
 
-	private static final Logger logger = LoggerFactory
-			.getLogger(Backtrack.class);
+	static final class BackTrackState<X extends State, S extends Step<X>> {
+		private final X state;
 
-	final static class BackTrackState<X extends State, S extends Step<X>> {
+		private final Iterator<S> steps;
+
 		public BackTrackState(final X state, final Iterator<S> steps) {
 			super();
 			this.state = state;
 			this.steps = steps;
 		}
-
-		private final X state;
-		private final Iterator<S> steps;
 
 		public X getState() {
 			return state;
@@ -30,6 +28,9 @@ public class Backtrack {
 			return steps;
 		}
 	}
+
+	private static final Logger logger = LoggerFactory
+			.getLogger(Backtrack.class);
 
 	/**
 	 * Run a backtracking algorithm on a problem

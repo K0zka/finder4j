@@ -5,6 +5,7 @@ import java.io.Serializable;
 public interface State extends Cloneable, Serializable {
 	/**
 	 * Check if the state is legal and complete.
+	 * 
 	 * @return
 	 */
 	boolean isComplete();

@@ -12,7 +12,7 @@ import com.github.k0zka.finder4j.backtrack.TerminationStrategy;
 public class AllSolutionsTerminationStrategy<X extends State> implements
 		TerminationStrategy<X> {
 
-	public boolean stop(X state) {
+	public boolean stop(final X state) {
 		return false;
 	}
 
