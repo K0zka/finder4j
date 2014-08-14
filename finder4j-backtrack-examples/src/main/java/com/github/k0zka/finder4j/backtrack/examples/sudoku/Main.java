@@ -18,7 +18,8 @@ public class Main {
 				{ n, 1, n, 7, n, 4, n, 3, n },
 				{ n, n, n, n, n, 6, 9, n, n }};
 		final SudokuState state = new SudokuState(board);
-		final FirstSolutionTerminationStrategy<SudokuState, SudokuStep> terminationStrategy = new FirstSolutionTerminationStrategy<SudokuState, SudokuStep>();
+		final FirstSolutionTerminationStrategy<SudokuState, SudokuStep> terminationStrategy 
+			= new FirstSolutionTerminationStrategy<SudokuState, SudokuStep>();
 		Backtrack.backtrack(state, new SudokuStepFactory(),
 				terminationStrategy, terminationStrategy);
 		System.out.println(terminationStrategy.getSolution());
