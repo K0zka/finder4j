@@ -73,19 +73,7 @@ public class Backtrack {
 				.produce(state).iterator());
 
 		while (!terminationStrategy.stop(btState.getState())) {
-			if (!btState.getSteps().hasNext()) {
-				// no steps available, try to step back
-				if (stack.isEmpty()) {
-					// if stepping back is not possible, there is no solution
-					logger.debug("no (more) solution possible, exiting");
-					return;
-				} else {
-					// step back
-					btState = stack.pop();
-					head = btState.getState();
-					logger.debug("Steping back to {}", head);
-				}
-			} else {
+			if (btState.getSteps().hasNext()) {
 				// take next step
 				final Step<X> step = btState.getSteps().next();
 				// just a short check if the other's have enough to do.
@@ -109,6 +97,18 @@ public class Backtrack {
 				// check if new state is complete, notify if so
 				if (head.isComplete()) {
 					listener.onSolution(head);
+				}
+			} else {
+				// no steps available, try to step back
+				if (stack.isEmpty()) {
+					// if stepping back is not possible, there is no solution
+					logger.debug("no (more) solution possible, exiting");
+					return;
+				} else {
+					// step back
+					btState = stack.pop();
+					head = btState.getState();
+					logger.debug("Steping back to {}", head);
 				}
 			}
 		}
