@@ -43,7 +43,6 @@ public class BacktrackTest {
 		Mockito.verify(listener, Mockito.never()).onSolution(Mockito.any(State.class));;
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Test
 	public void backtrackSingleStepToComplete() {
 		Mockito.when(terminationStrategy.stop(Mockito.eq(state))).thenReturn(false);
@@ -56,7 +55,6 @@ public class BacktrackTest {
 		Mockito.verify(listener).onSolution(completeState);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Test
 	public void backtrackSingleStepDeadEnd() {
 		Mockito.when(terminationStrategy.stop(Mockito.any(State.class))).thenReturn(false);

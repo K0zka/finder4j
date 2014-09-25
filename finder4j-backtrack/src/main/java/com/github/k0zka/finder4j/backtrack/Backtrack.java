@@ -45,6 +45,24 @@ public class Backtrack {
 			final X state, final StepFactory<S, X> factory,
 			final TerminationStrategy<X> terminationStrategy,
 			final SolutionListener<X, S> listener) {
+		backtrack(state, factory, terminationStrategy, listener, null);
+	}
+
+	/**
+	 * Run a backtracking algorithm on a problem
+	 * 
+	 * @param state
+	 * @param factory
+	 * @param terminationStrategy
+	 * @param listener
+	 * @param step
+	 * @param parallelTrack
+	 */
+	public static <X extends State, S extends Step<X>> void backtrack(
+			final X state, final StepFactory<S, X> factory,
+			final TerminationStrategy<X> terminationStrategy,
+			final SolutionListener<X, S> listener,
+			final ParallelTrack<X, S> parallelTrack) {
 
 		logger.debug("Starting backtrack");
 
@@ -70,6 +88,14 @@ public class Backtrack {
 			} else {
 				// take next step
 				final Step<X> step = btState.getSteps().next();
+				// just a short check if the other's have enough to do.
+				// if taking multiple steps is enabled
+				if (parallelTrack != null) {
+					Iterator<S> steps = btState.getSteps();
+					fork(factory, terminationStrategy, listener, parallelTrack,
+							head, steps);
+				}
+
 				logger.debug("Taking step {}", step);
 				// save the state for possible return
 				stack.push(btState);
@@ -87,5 +113,25 @@ public class Backtrack {
 			}
 		}
 		logger.debug("termination strategy decided to stop, exiting backtrack");
+	}
+
+	private static <X extends State, S extends Step<X>> void fork(
+			final StepFactory<S, X> factory,
+			final TerminationStrategy<X> terminationStrategy,
+			final SolutionListener<X, S> listener,
+			final ParallelTrack<X, S> parallelTrack, final X head,
+			final Iterator<S> steps) {
+		// as long as
+		// there are possible next steps
+		// and computing resources available
+		while (steps.hasNext() && parallelTrack.available()) {
+			// get the next step
+			final Step<X> parallelStep = steps.next();
+			// take a next step
+			final X forkedStep = parallelStep.take(head);
+			// leave the parallel process running
+			parallelTrack.start(forkedStep, factory, terminationStrategy,
+					listener);
+		}
 	}
 }
