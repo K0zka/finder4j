@@ -32,4 +32,9 @@ public interface ParallelTrack<X extends State, S extends Step<X>> {
 			final TerminationStrategy<X> terminationStrategy,
 			final SolutionListener<X, S> listener);
 
+	/**
+	 * Join all the started processes.
+	 */
+	void join();
+
 }

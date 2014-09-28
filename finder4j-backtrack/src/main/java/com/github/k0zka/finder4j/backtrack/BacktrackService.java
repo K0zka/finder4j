@@ -31,8 +31,10 @@ public class BacktrackService {
 
 		public void run() {
 			logger.debug("starting backtrack from state {}", state);
+			LocalParallelTrack<X, S> tracker = new LocalParallelTrack<X, S>(executorService);
 			Backtrack.backtrack(state, factory, terminationStrategy, listener,
-					new LocalParallelTrack<X, S>(executorService));
+					tracker);
+			tracker.join();
 		}
 	}
 
@@ -54,6 +56,7 @@ public class BacktrackService {
 			final Future<?> future = executorService.submit(new Worker<X, S>(
 					state, terminationStrategy, listener, factory));
 			future.get();
+			
 		} catch (InterruptedException | ExecutionException e) {
 			throw new IllegalStateException(e);
 		}
