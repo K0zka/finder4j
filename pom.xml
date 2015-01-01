@@ -20,6 +20,7 @@
 
   <scm>
     <developerConnection>scm:git:https://github.com/K0zka/finder4j</developerConnection>
+    <connection>scm:git:https://github.com/K0zka/finder4j</connection>
   </scm>
   
   <build>
