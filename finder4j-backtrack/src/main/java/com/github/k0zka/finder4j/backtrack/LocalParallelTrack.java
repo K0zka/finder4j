@@ -23,15 +23,15 @@ public class LocalParallelTrack<X extends State, S extends Step<X>> implements
 
 	private final ForkJoinPool executor;
 	private final List<Future<?>> jobs = Collections
-			.<Future<?>> synchronizedList(new LinkedList<Future<?>>());
+			.<Future<?>>synchronizedList(new LinkedList<Future<?>>());
 
 	public boolean available() {
 		return executor.getRunningThreadCount() < executor.getParallelism();
 	}
 
 	public void start(final X state, final StepFactory<S, X> factory,
-			final TerminationStrategy<X> terminationStrategy,
-			final SolutionListener<X, S> listener) {
+	                  final TerminationStrategy<X> terminationStrategy,
+	                  final SolutionListener<X, S> listener) {
 		final ParallelTrack<X, S> parallelTrack = this;
 		jobs.add(executor.submit(new Runnable() {
 
@@ -44,7 +44,8 @@ public class LocalParallelTrack<X extends State, S extends Step<X>> implements
 
 	@Override
 	public void join() {
-		for (final Future<?> future : jobs) {
+		while (!jobs.isEmpty()) {
+			final Future<?> future = jobs.remove(0);
 			try {
 				future.get();
 			} catch (InterruptedException | ExecutionException e) {
