@@ -39,7 +39,6 @@ public class Backtrack {
 	 * @param factory
 	 * @param terminationStrategy
 	 * @param listener
-	 * @param step
 	 */
 	public static <X extends State, S extends Step<X>> void backtrack(
 			final X state, final StepFactory<S, X> factory,
