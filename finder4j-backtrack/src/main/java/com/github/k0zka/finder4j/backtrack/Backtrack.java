@@ -34,7 +34,7 @@ public class Backtrack {
 
 	/**
 	 * Run a backtracking algorithm on a problem
-	 * 
+	 *
 	 * @param state
 	 * @param factory
 	 * @param terminationStrategy
@@ -50,12 +50,11 @@ public class Backtrack {
 
 	/**
 	 * Run a backtracking algorithm on a problem
-	 * 
+	 *
 	 * @param state
 	 * @param factory
 	 * @param terminationStrategy
 	 * @param listener
-	 * @param step
 	 * @param parallelTrack
 	 */
 	public static <X extends State, S extends Step<X>> void backtrack(
