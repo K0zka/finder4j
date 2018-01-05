@@ -55,10 +55,10 @@ class QueensState @JvmOverloads constructor(
 		fun isLegal(queens: ShortArray): Boolean {
 			// take each queen
 			for (i in 0 until queens.size - 1) {
-				val checkQueen = queens[i] ?: continue
+				val checkQueen = queens[i]
 // check that it does not hit any other queens
 				for (j in i + 1 until queens.size) {
-					val otherQueen = queens[j] ?: continue
+					val otherQueen = queens[j]
 					if (isHit(i, checkQueen, j, otherQueen)) {
 						return false
 					}
@@ -70,11 +70,9 @@ class QueensState @JvmOverloads constructor(
 		fun isHit(checkQueenPosition: Int, checkQueen: Short?,
 				  otherQueenPosition: Int, otherQueen: Short?): Boolean {
 			val distance = otherQueenPosition - checkQueenPosition
-			return if (checkQueen == otherQueen
+			return (checkQueen == otherQueen
 					|| checkQueen == (otherQueen!! + distance).toShort()
-					|| checkQueen == (otherQueen - distance).toShort()) {
-				true
-			} else false
+					|| checkQueen == (otherQueen - distance).toShort())
 		}
 	}
 }

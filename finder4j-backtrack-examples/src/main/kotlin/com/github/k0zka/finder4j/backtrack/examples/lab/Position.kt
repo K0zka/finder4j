@@ -22,7 +22,7 @@ class Position(val x: Int, val y: Int) : Serializable {
 		val other = obj as Position?
 		if (x != other!!.x)
 			return false
-		return if (y != other.y) false else true
+		return y == other.y
 	}
 
 	override fun toString(): String {

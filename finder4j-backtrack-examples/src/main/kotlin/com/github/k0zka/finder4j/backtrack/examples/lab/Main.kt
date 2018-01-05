@@ -10,7 +10,7 @@ import com.github.k0zka.finder4j.backtrack.termination.FirstSolutionTerminationS
 
 object Main {
 
-	private val logger = LoggerFactory.getLogger(Main::class.java!!)
+	private val logger = LoggerFactory.getLogger(Main::class.java)
 
 	@JvmStatic
 	fun main(args: Array<String>) {
