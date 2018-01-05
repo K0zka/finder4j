@@ -8,11 +8,32 @@
 	</parent>
 	<artifactId>finder4j-backtrack-examples</artifactId>
 	<name>finder4j-backtrack-examples</name>
-	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	<build>
+		<sourceDirectory>src/main/kotlin</sourceDirectory>
+		<testSourceDirectory>src/test/kotlin</testSourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.jetbrains.dokka</groupId>
+				<artifactId>dokka-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>kotlin-maven-plugin</artifactId>
+				<groupId>org.jetbrains.kotlin</groupId>
+			</plugin>
+		</plugins>
+	</build>
 	<dependencies>
+		<dependency>
+			<groupId>org.jetbrains.kotlin</groupId>
+			<artifactId>kotlin-runtime</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains.kotlin</groupId>
+			<artifactId>kotlin-stdlib</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.github.K0zka</groupId>
 			<artifactId>finder4j-backtrack</artifactId>
