@@ -71,7 +71,7 @@ object Backtrack {
 				logger.debug("Step ahead to {}")
 
 				// check if new state is complete, notify if so
-				if (head.isComplete) {
+				if (head.complete) {
 					listener.onSolution(head)
 				}
 			} else {

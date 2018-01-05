@@ -1,12 +1,9 @@
 package com.github.k0zka.finder4j.backtrack.examples.lab
 
-import java.util.Arrays
-
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
-
 import com.github.k0zka.finder4j.backtrack.Backtrack
 import com.github.k0zka.finder4j.backtrack.termination.FirstSolutionTerminationStrategy
+import org.slf4j.LoggerFactory
+import java.util.Arrays
 
 object Main {
 

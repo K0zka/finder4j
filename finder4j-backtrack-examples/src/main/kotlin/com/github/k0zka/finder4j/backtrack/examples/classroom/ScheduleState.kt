@@ -7,7 +7,7 @@ class ScheduleState(private val items: Collection<ScheduleItem>,
 
 	override//TODO
 			//check that the group does have all lessons scheduled
-	val isComplete: Boolean
+	val complete: Boolean
 		get() {
 			for (group in groups) {
 				for (lesson in group.lessons) {

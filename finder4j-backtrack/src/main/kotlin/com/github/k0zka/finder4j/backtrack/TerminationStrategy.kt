@@ -1,5 +1,5 @@
 package com.github.k0zka.finder4j.backtrack
 
-interface TerminationStrategy<X : State> {
+interface TerminationStrategy<in X : State> {
 	fun stop(state: X): Boolean
 }

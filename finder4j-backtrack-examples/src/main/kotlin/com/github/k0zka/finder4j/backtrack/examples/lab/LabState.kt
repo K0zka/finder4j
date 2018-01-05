@@ -8,7 +8,7 @@ class LabState : State {
 	internal val lab: Array<Array<LabObject>>
 	internal val route: List<Position>
 
-	override val isComplete: Boolean
+	override val complete: Boolean
 		get() {
 			val position = route[route.size - 1]
 			return LabObject.Exit == lab[position.x][position.y]

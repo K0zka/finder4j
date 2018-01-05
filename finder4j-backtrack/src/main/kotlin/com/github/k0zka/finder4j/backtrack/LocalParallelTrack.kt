@@ -15,12 +15,12 @@ class LocalParallelTrack<X : State, S : Step<X>>(private val executor: ForkJoinP
 		return executor.runningThreadCount < executor.parallelism
 	}
 
-	override fun start(state: X, factory: StepFactory<S, X>,
+	override fun start(state: X, stepFactory: StepFactory<S, X>,
 					   terminationStrategy: TerminationStrategy<X>,
 					   listener: SolutionListener<X, S>) {
 		val parallelTrack = this
 		jobs.add(executor.submit {
-			Backtrack.backtrack(state, factory, terminationStrategy,
+			Backtrack.backtrack(state, stepFactory, terminationStrategy,
 								listener, parallelTrack)
 		})
 	}

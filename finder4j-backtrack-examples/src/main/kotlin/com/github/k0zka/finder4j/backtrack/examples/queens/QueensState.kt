@@ -19,7 +19,7 @@ class QueensState @JvmOverloads constructor(
 	val isLegal: Boolean
 		get() = isLegal(queens)
 
-	override val isComplete: Boolean
+	override val complete: Boolean
 		get() =
 			queens.any { it == notSet }
 

@@ -47,7 +47,7 @@ class BacktrackServiceTest {
 				listOf())
 		whenever(step1.take(eq(state))).thenReturn(finalState)
 		whenever(step2.take(eq(state))).thenReturn(finalState)
-		whenever(finalState.isComplete).thenReturn(true)
+		whenever(finalState.complete).thenReturn(true)
 
 		service!!.backtrack(state, factory, terminationStrategy, listener)
 

@@ -8,5 +8,5 @@ interface State : Cloneable, Serializable {
 	 *
 	 * @return
 	 */
-	val isComplete: Boolean
+	val complete: Boolean
 }

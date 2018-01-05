@@ -7,7 +7,6 @@ import com.nhaarman.mockito_kotlin.never
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
 import org.junit.Test
-import java.util.Arrays
 
 class BacktrackTest {
 
@@ -40,7 +39,7 @@ class BacktrackTest {
 	fun backtrackSingleStepToComplete() {
 		whenever(terminationStrategy.stop(eq(state))).thenReturn(false)
 		whenever(terminationStrategy.stop(eq(completeState))).thenReturn(true)
-		whenever(completeState.isComplete).thenReturn(true)
+		whenever(completeState.complete).thenReturn(true)
 		whenever(stepFactory.produce(eq(state))).thenReturn(listOf(step))
 		whenever(step.take(eq(state))).thenReturn(completeState)
 		Backtrack.backtrack(state, stepFactory, terminationStrategy, listener)

@@ -9,7 +9,7 @@ import java.util.concurrent.ForkJoinPool
  */
 class BacktrackService @JvmOverloads constructor(nrOfCpus: Int = Runtime.getRuntime().availableProcessors()) {
 
-	private val executorService: ForkJoinPool
+	private val executorService: ForkJoinPool = ForkJoinPool(nrOfCpus)
 
 	private inner class Worker<X : State, S : Step<X>> constructor(private val state: X,
 																		   private val terminationStrategy: TerminationStrategy<X>,
@@ -24,10 +24,6 @@ class BacktrackService @JvmOverloads constructor(nrOfCpus: Int = Runtime.getRunt
 								tracker)
 			tracker.join()
 		}
-	}
-
-	init {
-		this.executorService = ForkJoinPool(nrOfCpus)
 	}
 
 	fun <X : State, S : Step<X>> backtrack(state: X,

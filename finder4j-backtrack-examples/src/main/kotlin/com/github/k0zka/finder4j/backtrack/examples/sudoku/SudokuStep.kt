@@ -11,7 +11,7 @@ class SudokuStep(private val x: Short, private val y: Short, private val num: Sh
 										  {i -> Arrays.copyOf(state.sudoku[i], state.sudoku.size)}
 		)
 		for (i in 0 until state.sudoku.size) {
-			copy[i] = Arrays.copyOf(state.sudoku[i], state.sudoku.size)
+			copy[i] = state.sudoku[i].copyOf()
 		}
 		copy[x.toInt()][y.toInt()] = num
 		return SudokuState(copy)

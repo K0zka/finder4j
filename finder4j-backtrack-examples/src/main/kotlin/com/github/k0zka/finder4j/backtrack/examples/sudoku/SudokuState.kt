@@ -4,7 +4,7 @@ import com.github.k0zka.finder4j.backtrack.State
 
 class SudokuState(internal val sudoku: Array<ShortArray>) : State {
 
-	override val isComplete: Boolean
+	override val complete: Boolean
 		get() {
 			for (row in sudoku) {
 				for (num in row) {
