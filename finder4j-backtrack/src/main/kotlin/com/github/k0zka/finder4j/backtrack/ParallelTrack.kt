@@ -8,7 +8,7 @@ package com.github.k0zka.finder4j.backtrack
  * @param <S>
  * step type
 </S></X> */
-interface ParallelTrack<X : State, S : Step<X>> {
+interface ParallelTrack<X : Any, S : Step<X>> {
 	/**
 	 * Should return true if there is any free computation resource available.
 	 *

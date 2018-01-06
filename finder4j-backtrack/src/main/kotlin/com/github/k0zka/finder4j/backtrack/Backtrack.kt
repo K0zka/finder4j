@@ -26,21 +26,32 @@ object Backtrack {
 		backtrack(state, factory, terminationStrategy, listener, null)
 	}
 
-	/**
-	 * Run a backtracking algorithm on a problem
-	 *
-	 * @param state
-	 * @param factory
-	 * @param terminationStrategy
-	 * @param listener
-	 * @param parallelTrack
-	 */
 	fun <X : State, S : Step<X>> backtrack(
 			state: X,
 			factory: StepFactory<S, X>,
 			terminationStrategy: TerminationStrategy<X>,
 			listener: SolutionListener<X>,
 			parallelTrack: ParallelTrack<X, S>?) {
+		backtrack(state, factory, terminationStrategy, listener, parallelTrack, { it.complete })
+	}
+
+	/**
+	 * Run a backtracking algorithm on a problem
+	 *
+	 * @param state		the start state for the search
+	 * @param factory	produces new steps from a state
+	 * @param terminationStrategy	decides when to terminate the search
+	 * @param listener		the listener receives the results
+	 * @param parallelTrack	(optional) service to run search tasks in parallel
+	 * @param check		check if a state is complete
+	 */
+	fun <X : Any, S : Step<X>> backtrack(
+			state: X,
+			factory: StepFactory<S, X>,
+			terminationStrategy: TerminationStrategy<X>,
+			listener: SolutionListener<X>,
+			parallelTrack: ParallelTrack<X, S>? = null,
+			check : (X) -> Boolean) {
 
 		logger.debug("Starting backtrack")
 
@@ -73,7 +84,7 @@ object Backtrack {
 				logger.debug("Step ahead to {}")
 
 				// check if new state is complete, notify if so
-				if (head.complete) {
+				if (check(head)) {
 					listener.onSolution(head)
 				}
 			} else {
@@ -93,7 +104,7 @@ object Backtrack {
 		logger.debug("termination strategy decided to stop, exiting backtrack")
 	}
 
-	private fun <X : State, S : Step<X>> fork(
+	private fun <X : Any, S : Step<X>> fork(
 			factory: StepFactory<S, X>,
 			terminationStrategy: TerminationStrategy<X>,
 			listener: SolutionListener<X>,
