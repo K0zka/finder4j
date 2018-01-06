@@ -27,6 +27,14 @@
 		<connection>scm:git:https://github.com/K0zka/finder4j</connection>
 	</scm>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jcenter</id>
+			<name>JCenter</name>
+			<url>https://jcenter.bintray.com/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -61,9 +69,11 @@
 					<version>${dokka.version}</version>
 					<executions>
 						<execution>
-							<phase>pre-site</phase>
+							<phase>prepare-package</phase>
 							<goals>
 								<goal>dokka</goal>
+								<goal>javadoc</goal>
+								<goal>javadocJar</goal>
 							</goals>
 						</execution>
 					</executions>
