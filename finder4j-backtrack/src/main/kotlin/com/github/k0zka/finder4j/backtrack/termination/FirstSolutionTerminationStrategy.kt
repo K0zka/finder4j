@@ -11,10 +11,9 @@ import com.github.k0zka.finder4j.backtrack.TerminationStrategy
  * @param <X>
  * @param <S>
 </S></X> */
-class FirstSolutionTerminationStrategy<X : State, S : Step<X>> : TerminationStrategy<X>, SolutionListener<X, S> {
+class FirstSolutionTerminationStrategy<X : State, S : Step<X>> : TerminationStrategy<X>, SolutionListener<X> {
 
 	var solution: X? = null
-		private set
 
 	override fun onSolution(state: X) {
 		this.solution = state

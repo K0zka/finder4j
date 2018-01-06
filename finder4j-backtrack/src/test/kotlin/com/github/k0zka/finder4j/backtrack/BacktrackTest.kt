@@ -20,7 +20,7 @@ class BacktrackTest {
 
 	private var terminationStrategy: TerminationStrategy<State> = mock()
 
-	private var listener: SolutionListener<State, Step<State>> = mock()
+	private var listener: SolutionListener<State> = mock()
 
 	private var step: Step<State> = mock()
 

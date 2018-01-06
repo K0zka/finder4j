@@ -21,7 +21,7 @@ class BacktrackServiceTest {
 
 	var factory: StepFactory<Step<State>, State> = mock()
 
-	var listener: SolutionListener<State, Step<State>> = mock()
+	var listener: SolutionListener<State> = mock()
 
 	var terminationStrategy: TerminationStrategy<State> = mock()
 

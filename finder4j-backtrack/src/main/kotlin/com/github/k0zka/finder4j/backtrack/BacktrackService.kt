@@ -12,9 +12,9 @@ class BacktrackService @JvmOverloads constructor(nrOfCpus: Int = Runtime.getRunt
 	private val executorService: ForkJoinPool = ForkJoinPool(nrOfCpus)
 
 	private inner class Worker<X : State, S : Step<X>> constructor(private val state: X,
-																		   private val terminationStrategy: TerminationStrategy<X>,
-																		   private val listener: SolutionListener<X, S>,
-																		   private val factory: StepFactory<S, X>) :
+																   private val terminationStrategy: TerminationStrategy<X>,
+																   private val listener: SolutionListener<X>,
+																   private val factory: StepFactory<S, X>) :
 			Runnable {
 
 		override fun run() {
@@ -29,7 +29,7 @@ class BacktrackService @JvmOverloads constructor(nrOfCpus: Int = Runtime.getRunt
 	fun <X : State, S : Step<X>> backtrack(state: X,
 										   factory: StepFactory<S, X>,
 										   terminationStrategy: TerminationStrategy<X>,
-										   listener: SolutionListener<X, S>) {
+										   listener: SolutionListener<X>) {
 		try {
 			val future = executorService.submit(Worker(
 					state, terminationStrategy, listener, factory))

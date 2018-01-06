@@ -8,7 +8,7 @@ object Backtrack {
 	private val logger = LoggerFactory
 			.getLogger(Backtrack::class.java)
 
-	internal class BackTrackState<X : State, S : Step<X>>(val state: X, val steps: Iterator<S>)
+	internal class BackTrackState<X : Any, S : Step<X>>(val state: X, val steps: Iterator<S>)
 
 	/**
 	 * Run a backtracking algorithm on a problem
@@ -19,9 +19,10 @@ object Backtrack {
 	 * @param listener
 	 */
 	fun <X : State, S : Step<X>> backtrack(
-			state: X, factory: StepFactory<S, X>,
+			state: X,
+			factory: StepFactory<S, X>,
 			terminationStrategy: TerminationStrategy<X>,
-			listener: SolutionListener<X, S>) {
+			listener: SolutionListener<X>) {
 		backtrack(state, factory, terminationStrategy, listener, null)
 	}
 
@@ -35,9 +36,10 @@ object Backtrack {
 	 * @param parallelTrack
 	 */
 	fun <X : State, S : Step<X>> backtrack(
-			state: X, factory: StepFactory<S, X>,
+			state: X,
+			factory: StepFactory<S, X>,
 			terminationStrategy: TerminationStrategy<X>,
-			listener: SolutionListener<X, S>,
+			listener: SolutionListener<X>,
 			parallelTrack: ParallelTrack<X, S>?) {
 
 		logger.debug("Starting backtrack")
@@ -94,7 +96,7 @@ object Backtrack {
 	private fun <X : State, S : Step<X>> fork(
 			factory: StepFactory<S, X>,
 			terminationStrategy: TerminationStrategy<X>,
-			listener: SolutionListener<X, S>,
+			listener: SolutionListener<X>,
 			parallelTrack: ParallelTrack<X, S>, head: X,
 			steps: Iterator<S>) {
 		// as long as

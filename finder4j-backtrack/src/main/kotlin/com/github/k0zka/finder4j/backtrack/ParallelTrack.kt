@@ -30,7 +30,7 @@ interface ParallelTrack<X : State, S : Step<X>> {
 	 */
 	fun start(state: X, stepFactory: StepFactory<S, X>,
 			  terminationStrategy: TerminationStrategy<X>,
-			  listener: SolutionListener<X, S>)
+			  listener: SolutionListener<X>)
 
 	/**
 	 * Join all the started processes.

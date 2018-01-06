@@ -5,7 +5,7 @@ import com.github.k0zka.finder4j.backtrack.State
 import com.github.k0zka.finder4j.backtrack.Step
 import org.slf4j.LoggerFactory
 
-class LoggerSolutionListener<X : State, S : Step<X>> : SolutionListener<X, S> {
+class LoggerSolutionListener<in X : State> : SolutionListener<X> {
 
 	private var cntr = 0
 

@@ -5,7 +5,7 @@ import java.util.ArrayList
 import com.github.k0zka.finder4j.backtrack.State
 import com.github.k0zka.finder4j.backtrack.TerminationStrategy
 
-class AndTerminationStrategy<X : State>(strategies: List<TerminationStrategy<X>>) : TerminationStrategy<X> {
+class AndTerminationStrategy<X : Any>(strategies: List<TerminationStrategy<X>>) : TerminationStrategy<X> {
 
 	private val strategies: List<TerminationStrategy<X>>
 

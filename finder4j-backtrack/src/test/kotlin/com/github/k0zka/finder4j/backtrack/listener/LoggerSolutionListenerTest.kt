@@ -10,7 +10,7 @@ class LoggerSolutionListenerTest {
 
 	@Test
 	fun onSolution() {
-		LoggerSolutionListener<State, Step<State>>().onSolution(state)
+		LoggerSolutionListener<State>().onSolution(state)
 		// verify that no error thrown: done
 	}
 }

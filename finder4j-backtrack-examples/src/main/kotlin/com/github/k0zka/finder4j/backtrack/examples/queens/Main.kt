@@ -10,7 +10,7 @@ object Main {
 	@JvmStatic
 	fun main(args: Array<String>) {
 		val terminationStrategy = AllSolutionsTerminationStrategy<QueensState>()
-		val listener = LoggerSolutionListener<QueensState, QueensStep>()
+		val listener = LoggerSolutionListener<QueensState>()
 		Backtrack
 				.backtrack(
 						QueensState(),
