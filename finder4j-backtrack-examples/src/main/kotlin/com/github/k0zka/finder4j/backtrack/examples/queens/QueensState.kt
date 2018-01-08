@@ -3,7 +3,7 @@ package com.github.k0zka.finder4j.backtrack.examples.queens
 import com.github.k0zka.finder4j.backtrack.State
 
 class QueensState @JvmOverloads constructor(
-		val queens: ShortArray = ShortArray(8,  {_ -> notSet })
+		val queens: ShortArray = ShortArray(8, { _ -> notSet })
 ) : State {
 
 	val lastQueen: Short

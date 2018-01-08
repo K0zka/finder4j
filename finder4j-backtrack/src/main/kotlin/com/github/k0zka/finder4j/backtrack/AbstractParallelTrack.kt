@@ -33,7 +33,7 @@ abstract class AbstractParallelTrack<X : Any, S : Step<X>>(
 		}
 	}
 
-	final internal fun submit(job : () -> Unit) {
+	final internal fun submit(job: () -> Unit) {
 		jobs.add(executor.submit(job))
 	}
 

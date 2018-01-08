@@ -7,7 +7,7 @@ class SudokuStep(private val x: Short, private val y: Short, private val num: Sh
 
 	override fun take(state: SudokuState): SudokuState {
 		val copy = Array<ShortArray>(state.sudoku.size,
-										  {i -> Arrays.copyOf(state.sudoku[i], state.sudoku.size)}
+									 { i -> Arrays.copyOf(state.sudoku[i], state.sudoku.size) }
 		)
 		for (i in 0 until state.sudoku.size) {
 			copy[i] = state.sudoku[i].copyOf()

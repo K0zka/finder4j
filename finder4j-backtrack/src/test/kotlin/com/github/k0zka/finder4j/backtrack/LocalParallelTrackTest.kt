@@ -9,15 +9,15 @@ import org.junit.Test
 import java.util.concurrent.ForkJoinPool
 
 class LocalParallelTrackTest {
-	
-	private var pool: ForkJoinPool= mock()
-	
-	private var state: State= mock()
-	
+
+	private var pool: ForkJoinPool = mock()
+
+	private var state: State = mock()
+
 	private var stepFactory: StepFactory<Step<State>, State> = mock()
-	
+
 	private var terminationStrategy: TerminationStrategy<State> = mock()
-	
+
 	private var listener: SolutionListener<State> = mock()
 
 	private var localParallelTrack: LocalParallelTrack<State, Step<State>>? = null

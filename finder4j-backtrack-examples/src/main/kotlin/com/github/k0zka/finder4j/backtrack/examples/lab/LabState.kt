@@ -28,7 +28,7 @@ class LabState : State {
 	constructor(x: Int, y: Int) {
 		val random = Random()
 		route = listOf()
-		lab = Array(x) { Array(y, {LabObject.Floor}) }
+		lab = Array(x) { Array(y, { LabObject.Floor }) }
 		var i = 1
 		while (i < x) {
 			for (j in 0 until y) {

@@ -13,6 +13,6 @@ interface BacktrackService {
 										 factory: StepFactory<S, X>,
 										 terminationStrategy: TerminationStrategy<X>,
 										 listener: SolutionListener<X>,
-										 check : (X) -> Boolean)
+										 check: (X) -> Boolean)
 
 }

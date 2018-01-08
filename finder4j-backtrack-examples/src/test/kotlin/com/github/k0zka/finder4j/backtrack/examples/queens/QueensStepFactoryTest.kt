@@ -7,7 +7,8 @@ import org.junit.Test
 class QueensStepFactoryTest {
 	@Test
 	fun produce() {
-		val steps = QueensStepFactory().produce(QueensState(arrayOf(1.toShort(), 1.toShort(), notSet, notSet).toShortArray()))
+		val steps = QueensStepFactory().produce(
+				QueensState(arrayOf(1.toShort(), 1.toShort(), notSet, notSet).toShortArray()))
 		Assert.assertFalse(steps.isEmpty())
 	}
 }

@@ -38,12 +38,12 @@ object Backtrack {
 	/**
 	 * Run a backtracking algorithm on a problem
 	 *
-	 * @param state		the start state for the search
-	 * @param factory	produces new steps from a state
-	 * @param terminationStrategy	decides when to terminate the search
-	 * @param listener		the listener receives the results
-	 * @param parallelTrack	(optional) service to run search tasks in parallel
-	 * @param check		check if a state is complete
+	 * @param state        the start state for the search
+	 * @param factory    produces new steps from a state
+	 * @param terminationStrategy    decides when to terminate the search
+	 * @param listener        the listener receives the results
+	 * @param parallelTrack    (optional) service to run search tasks in parallel
+	 * @param check        check if a state is complete
 	 */
 	fun <X : Any, S : Step<X>> backtrack(
 			state: X,
@@ -51,7 +51,7 @@ object Backtrack {
 			terminationStrategy: TerminationStrategy<X>,
 			listener: SolutionListener<X>,
 			parallelTrack: ParallelTrack<X, S>? = null,
-			check : (X) -> Boolean) {
+			check: (X) -> Boolean) {
 
 		logger.debug("Starting backtrack")
 
