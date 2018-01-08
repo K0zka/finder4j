@@ -24,7 +24,7 @@ class LocalParallelTrackTest {
 
 	@Before
 	fun setup() {
-		localParallelTrack = LocalParallelTrack(pool)
+		localParallelTrack = LocalParallelTrack(pool, stepFactory, terminationStrategy, listener)
 	}
 
 	@Test
@@ -45,7 +45,7 @@ class LocalParallelTrackTest {
 	fun start() {
 		whenever(
 				pool.submit(any())).thenAnswer { null }
-		localParallelTrack!!.start(state, stepFactory, terminationStrategy, listener)
+		localParallelTrack!!.start(state)
 
 	}
 

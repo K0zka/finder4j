@@ -1,7 +1,6 @@
 package com.github.k0zka.finder4j.backtrack.examples.sudoku
 
 import com.github.k0zka.finder4j.backtrack.Backtrack
-import com.github.k0zka.finder4j.backtrack.examples.queens.QueensState
 import com.github.k0zka.finder4j.backtrack.termination.FirstSolutionTerminationStrategy
 
 object Main {
@@ -19,7 +18,7 @@ object Main {
 							arrayOf(n, 1, n, 7, n, 4, n, 3, n).toShortArray(),
 							arrayOf(n, n, n, n, n, 6, 9, n, n).toShortArray())
 		val state = SudokuState(board)
-		val terminationStrategy = FirstSolutionTerminationStrategy<SudokuState, SudokuStep>()
+		val terminationStrategy = FirstSolutionTerminationStrategy<SudokuState>()
 		Backtrack.backtrack(state, SudokuStepFactory(),
 							terminationStrategy, terminationStrategy)
 		println(terminationStrategy.solution)

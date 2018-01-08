@@ -21,16 +21,8 @@ interface ParallelTrack<X : Any, S : Step<X>> {
 	 *
 	 * @param state
 	 * starting state of the search thread
-	 * @param stepFactory
-	 * steps factory
-	 * @param terminationStrategy
-	 * termination strategy
-	 * @param listener
-	 * solution listener
 	 */
-	fun start(state: X, stepFactory: StepFactory<S, X>,
-			  terminationStrategy: TerminationStrategy<X>,
-			  listener: SolutionListener<X>)
+	fun start(state: X)
 
 	/**
 	 * Join all the started processes.

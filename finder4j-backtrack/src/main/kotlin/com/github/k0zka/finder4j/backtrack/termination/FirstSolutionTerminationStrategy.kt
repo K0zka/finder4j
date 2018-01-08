@@ -9,9 +9,8 @@ import com.github.k0zka.finder4j.backtrack.TerminationStrategy
  * Terminate the search after the first solution is received.
  *
  * @param <X>
- * @param <S>
-</S></X> */
-class FirstSolutionTerminationStrategy<X : State, S : Step<X>> : TerminationStrategy<X>, SolutionListener<X> {
+ */
+class FirstSolutionTerminationStrategy<X : Any> : TerminationStrategy<X>, SolutionListener<X> {
 
 	var solution: X? = null
 

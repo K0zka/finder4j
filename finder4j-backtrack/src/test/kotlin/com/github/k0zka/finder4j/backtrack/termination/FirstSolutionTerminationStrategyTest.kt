@@ -12,7 +12,7 @@ class FirstSolutionTerminationStrategyTest {
 
 	@Test
 	fun onSolution() {
-		val strategy = FirstSolutionTerminationStrategy<State, Step<State>>()
+		val strategy = FirstSolutionTerminationStrategy<State>()
 		Assert.assertNull(strategy.solution)
 		Assert.assertFalse(strategy.stop(state))
 		strategy.onSolution(state)

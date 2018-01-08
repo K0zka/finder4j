@@ -11,7 +11,7 @@ object Main {
 
 	@JvmStatic
 	fun main(args: Array<String>) {
-		val terminationStrategy = FirstSolutionTerminationStrategy<LabState, LabStep>()
+		val terminationStrategy = FirstSolutionTerminationStrategy<LabState>()
 		Backtrack.backtrack(
 				LabState(arrayOf(arrayOf(LabObject.Floor, LabObject.Floor, LabObject.Floor, LabObject.Wall),
 								 arrayOf(LabObject.Wall, LabObject.Floor, LabObject.Floor, LabObject.Wall),

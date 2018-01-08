@@ -69,7 +69,7 @@ object Backtrack {
 				// if taking multiple steps is enabled
 				if (parallelTrack != null) {
 					val steps = btState.steps
-					fork(factory, terminationStrategy, listener, parallelTrack,
+					fork(parallelTrack,
 						 head, steps)
 				}
 
@@ -105,10 +105,8 @@ object Backtrack {
 	}
 
 	private fun <X : Any, S : Step<X>> fork(
-			factory: StepFactory<S, X>,
-			terminationStrategy: TerminationStrategy<X>,
-			listener: SolutionListener<X>,
-			parallelTrack: ParallelTrack<X, S>, head: X,
+			parallelTrack: ParallelTrack<X, S>,
+			head: X,
 			steps: Iterator<S>) {
 		// as long as
 		// there are possible next steps
@@ -119,8 +117,7 @@ object Backtrack {
 			// take a next step
 			val forkedStep = parallelStep.take(head)
 			// leave the parallel process running
-			parallelTrack.start(forkedStep, factory, terminationStrategy,
-								listener)
+			parallelTrack.start(forkedStep)
 		}
 	}
 }

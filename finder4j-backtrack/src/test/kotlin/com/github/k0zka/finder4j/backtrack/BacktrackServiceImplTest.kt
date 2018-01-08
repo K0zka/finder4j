@@ -8,8 +8,9 @@ import com.nhaarman.mockito_kotlin.whenever
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
+import java.util.concurrent.ForkJoinPool
 
-class BacktrackServiceTest {
+class BacktrackServiceImplTest {
 
 	private var state: State = mock()
 
@@ -25,13 +26,13 @@ class BacktrackServiceTest {
 
 	var terminationStrategy: TerminationStrategy<State> = mock()
 
-	var service: BacktrackService? = null
+	var service: BacktrackServiceImpl? = null
 
 	@Before
 	fun startup() {
 		// for testing, enforce having 4 workers even if the number of actual
 		// CPUs is less
-		service = BacktrackService(4)
+		service = BacktrackServiceImpl(ForkJoinPool(4))
 	}
 
 	@After
