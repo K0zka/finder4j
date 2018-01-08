@@ -1,7 +1,6 @@
 package com.github.k0zka.finder4j.backtrack.termination
 
 import com.github.k0zka.finder4j.backtrack.State
-import com.github.k0zka.finder4j.backtrack.Step
 import com.nhaarman.mockito_kotlin.mock
 import org.junit.Assert
 import org.junit.Test

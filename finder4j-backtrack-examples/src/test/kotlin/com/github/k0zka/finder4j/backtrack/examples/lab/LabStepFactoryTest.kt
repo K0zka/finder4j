@@ -1,15 +1,8 @@
 package com.github.k0zka.finder4j.backtrack.examples.lab
 
-import java.util.Arrays
-
 import org.junit.Assert
 import org.junit.Test
-
-import com.github.k0zka.finder4j.backtrack.examples.lab.LabObject
-import com.github.k0zka.finder4j.backtrack.examples.lab.LabState
-import com.github.k0zka.finder4j.backtrack.examples.lab.LabStep
-import com.github.k0zka.finder4j.backtrack.examples.lab.LabStepFactory
-import com.github.k0zka.finder4j.backtrack.examples.lab.Position
+import java.util.Arrays
 
 class LabStepFactoryTest {
 	@Test

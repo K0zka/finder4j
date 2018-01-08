@@ -4,9 +4,6 @@ package com.github.k0zka.finder4j.backtrack.examples.queens
 import org.junit.Assert
 import org.junit.Test
 
-import com.github.k0zka.finder4j.backtrack.examples.queens.QueensState
-import com.github.k0zka.finder4j.backtrack.examples.queens.QueensStep
-
 class QueensStepTest {
 	@Test
 	fun take() {

@@ -1,12 +1,8 @@
 package com.github.k0zka.finder4j.backtrack.examples.sudoku
 
+import com.github.k0zka.finder4j.backtrack.examples.sudoku.SudokuState.Companion.notSet
 import org.junit.Assert
 import org.junit.Test
-
-import com.github.k0zka.finder4j.backtrack.examples.sudoku.SudokuState
-import com.github.k0zka.finder4j.backtrack.examples.sudoku.SudokuState.Companion.notSet
-import com.github.k0zka.finder4j.backtrack.examples.sudoku.SudokuStep
-import com.github.k0zka.finder4j.backtrack.examples.sudoku.SudokuStepFactory
 
 class SudokuStepFactoryTest {
 	

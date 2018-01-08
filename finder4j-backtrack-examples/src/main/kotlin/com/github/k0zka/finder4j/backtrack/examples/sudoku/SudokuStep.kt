@@ -1,8 +1,7 @@
 package com.github.k0zka.finder4j.backtrack.examples.sudoku
 
-import java.util.Arrays
-
 import com.github.k0zka.finder4j.backtrack.Step
+import java.util.Arrays
 
 class SudokuStep(private val x: Short, private val y: Short, private val num: Short) : Step<SudokuState> {
 

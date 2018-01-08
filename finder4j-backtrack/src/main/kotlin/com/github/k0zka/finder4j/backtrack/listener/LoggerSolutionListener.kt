@@ -2,7 +2,6 @@ package com.github.k0zka.finder4j.backtrack.listener
 
 import com.github.k0zka.finder4j.backtrack.SolutionListener
 import com.github.k0zka.finder4j.backtrack.State
-import com.github.k0zka.finder4j.backtrack.Step
 import org.slf4j.LoggerFactory
 
 class LoggerSolutionListener<in X : State> : SolutionListener<X> {

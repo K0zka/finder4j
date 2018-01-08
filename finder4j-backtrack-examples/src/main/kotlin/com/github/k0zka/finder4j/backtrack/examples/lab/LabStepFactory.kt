@@ -1,8 +1,7 @@
 package com.github.k0zka.finder4j.backtrack.examples.lab
 
-import java.util.ArrayList
-
 import com.github.k0zka.finder4j.backtrack.StepFactory
+import java.util.ArrayList
 
 class LabStepFactory : StepFactory<LabStep, LabState> {
 
