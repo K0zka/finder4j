@@ -8,10 +8,8 @@ import com.github.k0zka.finder4j.backtrack.TerminationStrategy
  * @param <X>
  * state type</X>
  */
-class AllSolutionsTerminationStrategy<X : Any> : TerminationStrategy<X> {
+open class AllSolutionsTerminationStrategy<X : Any> : TerminationStrategy<X> {
 
-	override fun stop(state: X): Boolean {
-		return false
-	}
+	override fun stop(state: X): Boolean = false
 
 }

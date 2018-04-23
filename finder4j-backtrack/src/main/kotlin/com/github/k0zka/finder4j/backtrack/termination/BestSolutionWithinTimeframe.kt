@@ -6,7 +6,7 @@ import com.github.k0zka.finder4j.backtrack.TerminationStrategy
 /**
  *
  */
-data class BestSolutionWithinTimeframe<X : Any>(
+open class BestSolutionWithinTimeframe<X : Any>(
 		/**
 		 * Even if there are no solutions found at all, terminate after a maximum amount of time spent in search.
 		 */

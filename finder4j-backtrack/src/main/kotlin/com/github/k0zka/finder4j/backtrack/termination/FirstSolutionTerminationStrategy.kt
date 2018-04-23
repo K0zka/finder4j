@@ -8,7 +8,7 @@ import com.github.k0zka.finder4j.backtrack.TerminationStrategy
  *
  * @param <X>
  */
-class FirstSolutionTerminationStrategy<X : Any> : TerminationStrategy<X>, SolutionListener<X> {
+open class FirstSolutionTerminationStrategy<X : Any> : TerminationStrategy<X>, SolutionListener<X> {
 
 	var solution: X? = null
 
