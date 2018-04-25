@@ -14,7 +14,7 @@
 
 	<properties>
 		<dokka.version>0.9.15</dokka.version>
-		<kotlin.version>1.2.10</kotlin.version>
+		<kotlin.version>1.2.40</kotlin.version>
 	</properties>
 
 	<modules>
