@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.github.K0zka</groupId>
 		<artifactId>finder4j-parent</artifactId>
-		<version>0.7-SNAPSHOT</version>
+		<version>0.7</version>
 	</parent>
 	<artifactId>finder4j-backtrack-examples</artifactId>
 	<name>finder4j-backtrack-examples</name>
