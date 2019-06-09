@@ -20,6 +20,7 @@
 	<modules>
 		<module>finder4j-backtrack</module>
 		<module>finder4j-backtrack-examples</module>
+		<module>finder4j-benchmarx</module>
 	</modules>
 
 	<scm>
