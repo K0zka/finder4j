@@ -97,7 +97,7 @@ object Backtrack {
 					// step back
 					btState = stack.pop()
 					head = btState.state
-					logger.debug("Steping back to {}", head)
+					logger.debug("Stepping back to {}", head)
 				}
 			}
 		}
